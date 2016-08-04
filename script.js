@@ -1,5 +1,3 @@
-'use strict'
-
 var carousel = {
 
 	slider: '.slider',
@@ -22,7 +20,10 @@ var carousel = {
 
 		var that = this;
 
-		that.resizeHandler();
+		that.buildLayout(that.visibleItems, that.marginRight, that.sliderWidth);
+		that.animateSlide(that.marginRight);
+		that.attachEvents(that.marginRight);
+
 		jQuery(window).resize(function() {
 			that.resizeHandler();
 		});
@@ -247,4 +248,6 @@ var carousel = {
 
 };
 
-window.load = carousel.init();
+jQuery(window).on('load', function(){
+	carousel.init();
+});
