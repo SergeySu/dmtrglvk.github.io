@@ -1,0 +1,34 @@
+body {
+	margin: 0;
+}
+
+.slider {
+	margin: 0 auto;
+}
+
+.slider ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+}
+
+.slider ul li {
+	float: left;
+}
+
+.slider ul img {
+	display: block;
+	width: 100%;
+}
+
+.slider-wrap {
+	overflow: hidden;
+	position: relative;
+}
+
+@media screen and (max-width: 400px) {
+	.slider-wrap {
+		width: 100% !important;
+	}
+}
