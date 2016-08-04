@@ -75,11 +75,11 @@ var carousel = {
 			el.css({
 				width: (slider.width() / visibleItems) - marginRight,
 				marginRight: marginRight + 'px'
-			})
+			});
 
 			totalWidth += el.width() + marginRight;
 
-		})
+		});
 
 		sliderList.width(totalWidth + 10);
 
@@ -87,7 +87,7 @@ var carousel = {
 
 	animateSlide: function(marginRight) {
 
-		var animateWidth = -jQuery(this.item).width() - marginRight
+		var animateWidth = -jQuery(this.item).width() - marginRight;
 
 		return animateWidth;
 
@@ -122,7 +122,7 @@ var carousel = {
 
 			}
 
-		})
+		});
 
 		jQuery(that.btnPrev).off().on('click', function(e){
 
@@ -138,7 +138,7 @@ var carousel = {
 
 					marginLeft: animateSlide
 
-				})
+				});
 
 				jQuery(that.sliderList).stop().animate({
 
@@ -152,7 +152,7 @@ var carousel = {
 
 			}
 
-		})
+		});
 
 		that.swipeHandler();
 
@@ -220,33 +220,42 @@ var carousel = {
 
 			return this.each(function() {
 
-				var me = jQuery(this)
-
-				var originalCoord = { x: 0, y: 0 }
-				var finalCoord = { x: 0, y: 0 }
+				var originalCoord = { x: 0, y: 0 },
+					finalCoord = { x: 0, y: 0 };
 
 				function touchStart(event) {
-					originalCoord.x = event.targetTouches[0].pageX
-					originalCoord.y = event.targetTouches[0].pageY
+					originalCoord.x = event.targetTouches[0].pageX;
+					originalCoord.y = event.targetTouches[0].pageY;
 				}
 
 				function touchMove(event) {
-					if (defaults.preventDefaultEvents)
+					if (defaults.preventDefaultEvents) {
+
 						event.preventDefault();
-					finalCoord.x = event.targetTouches[0].pageX
-					finalCoord.y = event.targetTouches[0].pageY
+
+						finalCoord.x = event.targetTouches[0].pageX;
+						finalCoord.y = event.targetTouches[0].pageY;
+
+					}
 				}
 
 				function touchEnd(event) {
-					var changeY = originalCoord.y - finalCoord.y
+
+					var changeY = originalCoord.y - finalCoord.y;
+
 					if(changeY < defaults.threshold.y && changeY > (defaults.threshold.y*-1)) {
-						changeX = originalCoord.x - finalCoord.x
+
+						changeX = originalCoord.x - finalCoord.x;
 
 						if(changeX > defaults.threshold.x) {
-							defaults.swipeLeft()
+
+							defaults.swipeLeft();
+
 						}
 						if(changeX < (defaults.threshold.x*-1)) {
-							defaults.swipeRight()
+
+							defaults.swipeRight();
+
 						}
 					}
 				}
