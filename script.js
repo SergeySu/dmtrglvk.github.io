@@ -20,9 +20,7 @@ var carousel = {
 
 		var that = this;
 
-		that.buildLayout(that.visibleItems, that.marginRight, that.sliderWidth);
-		that.animateSlide(that.marginRight);
-		that.attachEvents(that.marginRight);
+		that.resizeHandler();
 
 		jQuery(window).resize(function() {
 			that.resizeHandler();

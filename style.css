@@ -4,6 +4,7 @@ body {
 
 .slider {
 	margin: 0 auto;
+	width:620px;
 }
 
 .slider ul {
@@ -11,10 +12,13 @@ body {
 	padding: 0;
 	list-style: none;
 	overflow: hidden;
+	width:9999px;
 }
 
 .slider ul li {
 	float: left;
+	width:196px;
+	margin-right: 10px;
 }
 
 .slider ul img {
@@ -25,6 +29,7 @@ body {
 .slider-wrap {
 	overflow: hidden;
 	position: relative;
+	width:100%;
 }
 
 @media screen and (max-width: 400px) {
