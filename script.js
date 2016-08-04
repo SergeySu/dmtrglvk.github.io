@@ -176,7 +176,7 @@ var carousel = {
 	resizeHandler: function() {
 
 		var that = this,
-			windowWidth = $(window).width();
+			windowWidth = jQuery(window).width();
 
 
 		if(windowWidth < that.breakpoints.mobile) {
@@ -193,8 +193,6 @@ var carousel = {
 
 		} else {
 
-			console.log('should be desktop');
-
 			that.buildLayout(that.visibleItems, that.marginRight, that.sliderWidth);
 			that.animateSlide(that.marginRight);
 			that.attachEvents(that.marginRight);
@@ -205,7 +203,7 @@ var carousel = {
 
 	swipeHandler: function() {
 
-		$.fn.swipe = function(options) {
+		jQuery.fn.swipe = function(options) {
 			var defaults = {
 				threshold: {
 					x: 30,
@@ -216,13 +214,13 @@ var carousel = {
 				preventDefaultEvents: true
 			};
 
-			var options = $.extend(defaults, options);
+			var options = jQuery.extend(defaults, options);
 
 			if (!this) return false;
 
 			return this.each(function() {
 
-				var me = $(this)
+				var me = jQuery(this)
 
 				var originalCoord = { x: 0, y: 0 }
 				var finalCoord = { x: 0, y: 0 }
