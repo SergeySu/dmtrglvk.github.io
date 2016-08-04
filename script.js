@@ -6,11 +6,19 @@ var carousel = {
 	btnPrev: '.btn-prev',
 	btnNext: '.btn-next',
 	marginRight: 10,
-	visibleItems: 3,
+	visibleItems: 4,
 	animationSpeed: 300,
-	sliderWidth: 620,
-	responsive: {
-		breakpoint: 460,
+	sliderWidth: 820,
+	breakpoints: {
+		tablet: 769,
+		mobile: 461
+	},
+	responsiveTablet: {
+		sliderWidth: '100%',
+		marginRight: 10,
+		visibleItems: 2
+	},
+	responsiveMobile: {
 		sliderWidth: '100%',
 		marginRight: 0,
 		visibleItems: 1
@@ -167,15 +175,25 @@ var carousel = {
 
 	resizeHandler: function() {
 
-		var that = this;
+		var that = this,
+			windowWidth = $(window).width();
 
-		if($(window).width() < that.responsive.breakpoint) {
 
-			that.buildLayout(that.responsive.visibleItems, that.responsive.marginRight, that.responsive.sliderWidth);
-			that.animateSlide(that.responsive.marginRight);
-			that.attachEvents(that.responsive.marginRight);
+		if(windowWidth < that.breakpoints.mobile) {
+
+			that.buildLayout(that.responsiveMobile.visibleItems, that.responsiveMobile.marginRight, that.responsiveMobile.sliderWidth);
+			that.animateSlide(that.responsiveMobile.marginRight);
+			that.attachEvents(that.responsiveMobile.marginRight);
+
+		} else if (windowWidth < that.breakpoints.tablet) {
+
+			that.buildLayout(that.responsiveTablet.visibleItems, that.responsiveTablet.marginRight, that.responsiveTablet.sliderWidth);
+			that.animateSlide(that.responsiveTablet.marginRight);
+			that.attachEvents(that.responsiveTablet.marginRight);
 
 		} else {
+
+			console.log('should be desktop');
 
 			that.buildLayout(that.visibleItems, that.marginRight, that.sliderWidth);
 			that.animateSlide(that.marginRight);
