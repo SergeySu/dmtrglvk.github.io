@@ -206,7 +206,7 @@ var carousel = {
 		jQuery.fn.swipe = function(options) {
 			var defaults = {
 				threshold: {
-					x: 30,
+					x: 10,
 					y: 100
 				},
 				swipeLeft: function() {},
