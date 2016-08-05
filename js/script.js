@@ -1,3 +1,5 @@
+'use strict'
+
 var carousel = {
 
 	slider: '.slider',
@@ -237,15 +239,12 @@ var carousel = {
 						finalCoord.y = event.targetTouches[0].pageY;
 
 					}
-				}
-
-				function touchEnd(event) {
 
 					var changeY = originalCoord.y - finalCoord.y;
 
 					if(changeY < defaults.threshold.y && changeY > (defaults.threshold.y*-1)) {
 
-						changeX = originalCoord.x - finalCoord.x;
+						var changeX = originalCoord.x - finalCoord.x;
 
 						if(changeX > defaults.threshold.x) {
 
@@ -255,6 +254,28 @@ var carousel = {
 						if(changeX < (defaults.threshold.x*-1)) {
 
 							defaults.swipeRight();
+
+						}
+					}
+
+				}
+
+				function touchEnd(event) {
+
+					var changeY = originalCoord.y - finalCoord.y;
+
+					if(changeY < defaults.threshold.y && changeY > (defaults.threshold.y*-1)) {
+
+						var changeX = originalCoord.x - finalCoord.x;
+
+						if(changeX > defaults.threshold.x) {
+
+							// defaults.swipeLeft();
+
+						}
+						if(changeX < (defaults.threshold.x*-1)) {
+
+							// defaults.swipeRight();
 
 						}
 					}
