@@ -8,11 +8,11 @@ var carousel = {
 	btnPrev: '.btn-prev',
 	btnNext: '.btn-next',
 	marginRight: 10,
-	visibleItems: 4,
+	visibleItems: 3,
 	animationSpeed: 300,
-	sliderWidth: 820,
+	sliderWidth: 630,
 	breakpoints: {
-		tablet: 769,
+		tablet: 700,
 		mobile: 461
 	},
 	responsiveTablet: {
@@ -48,7 +48,7 @@ var carousel = {
 
 		if(sliderWidth === '100%') {
 
-			slider.width(jQuery(window).width());
+			slider.width(slider.parent().width() - 20);
 
 		} else {
 
