@@ -165,6 +165,18 @@ p {
 	margin: 0 auto;
 }
 @media screen and (max-width: 460px) {
+	body {
+		min-height: 1px;
+	}
+	.container {
+		top:0;
+		-moz-transform: translateY(0);
+		-webkit-transform: translateY(0);
+		-o-transform: translateY(0);
+		-ms-transform: translateY(0);
+		transform: translateY(0);
+		padding: 20px 15px;
+	}
 	.container .heading h1 {
 		float: none;
 		margin: 0 0 10px;
