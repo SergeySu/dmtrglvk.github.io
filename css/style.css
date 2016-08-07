@@ -177,6 +177,8 @@ p {
 		transform: translateY(0);
 		padding: 20px 15px;
 	}
+}
+@media screen and (max-width: 460px) {
 	.container .heading h1 {
 		float: none;
 		margin: 0 0 10px;
